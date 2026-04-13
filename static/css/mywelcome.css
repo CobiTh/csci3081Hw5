@@ -1,0 +1,48 @@
+table, th, td {
+  border:1px solid black;
+}
+.container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border:1px solid black;
+    width: fit-content;
+}
+a:link{
+    border: 1px white;
+}
+#navigation{
+    display: flex;
+    border: solid white 1px;
+     background: linear-gradient(45deg, maroon 55%, gold 45%);
+    }
+#navigation > div {
+    padding: 10px;
+    color: white;
+}
+#navigation > div > a {
+    color: white;
+    text-decoration: none;
+}
+.gist{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+#myclock {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    width: 100px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    font-size: 18px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+}

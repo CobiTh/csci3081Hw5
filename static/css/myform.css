@@ -1,0 +1,58 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+#navigation{
+    display: flex;
+    border: solid white 1px;
+    background: linear-gradient(45deg, maroon 55%, gold 45%);
+}
+#navigation > div {
+    padding: 10px;
+    color: white;
+}
+#navigation > div > a {
+    color: white;
+    text-decoration: none;
+}
+.input-form{
+    display:flex;
+    flex: 1;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 60px;
+
+}
+.input-form td{
+    border: 1px solid grey;
+    padding: 12px;
+}
+.input-form table{
+    border-collapse:collapse;
+    background-color: white;
+    max-width: 400px;
+    padding: 20px;
+    height: 500px;
+}
+input, select {
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+}
+#map {
+    height: 500px;
+    flex: 1;
+    max-width: 400px;
+    margin-left: 30px;
+}
+#navBar{
+    visibility: hidden;
+    display:flex;
+    justify-content: center;
+    width: 400px;
+    height: 500px;
+    background: white;
+    margin-top:30px;
+    position: fixed;
+    left: 40%;
+}

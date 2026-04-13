@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>myForm</title>
+
+    <script type="module" src="../js/formMap.js"></script>
+    <link rel="stylesheet" href="../css/myform.css">
+</head>
+<body style="background: #4a5c60">
+<div id="navigation">
+    <div><a href="mywelcome.html">Welcome page</a></div>
+    <div><a href="myform.html">Form Input</a></div>
+    <div><a href="myguests.html">Guest info</a></div>
+    <div><a href="stocks.html">Stocks</a></div>
+</div>
+<div class="input-form">
+    <form action="/guestlog.html" method="post">
+    <table>
+        <tr>
+            <td><label for="name">Name</label></td>
+            <td><input type="text" id="name" name="name" required></td>
+        </tr>
+        <tr>
+            <td><label for="creature_type">Type of Creature (e.g. human, canine, feline, rodent, etc.)</label></td>
+            <td><input type="text" id="creature_type" name="creature_type" required></td>
+        </tr>
+        <tr>
+            <td><label for="stage_of_life">Stage of Life (child, teen, adult)</label></td>
+            <td><select id="stage_of_life" name="stage_of_life" required>
+            <option value="" disabled selected>Select a stage</option>
+            <option value="Child" >Child</option>
+            <option value="Teen">Teen</option>
+            <option value="Adult">Adult</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="location">location(Address)</label></td>
+            <td><input type="text" id="location" name="location" required></td>
+        </tr>
+        <tr>
+            <td><label for="phone_number">phone number</label></td>
+            <td><input type="tel" id="phone_number" name="phone_number"
+            required pattern="\d{3}-\d{3}-\d{4}" placeholder="123-456-1234"></td>
+        </tr>
+        <tr>
+            <td><label for="website">Website (if applicable)</label></td>
+            <td><input type="url" id="website" name="website"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit"></td>
+        </tr>
+    </table>
+    </form>
+
+<div id="map"></div>
+
+<!-- load map -->
+<script>
+    ((g) => {
+        var h,
+            a,
+            k,
+            p = "The Google Maps JavaScript API",
+            c = "google",
+            l = "importLibrary",
+            q = "__ib__",
+            m = document,
+            b = window;
+        b = b[c] || (b[c] = {});
+        var d = b.maps || (b.maps = {}),
+            r = new Set(),
+            e = new URLSearchParams(),
+            u = () =>
+                h ||
+                (h = new Promise(async (f, n) => {
+                    await (a = m.createElement("script"));
+                    e.set("libraries", [...r] + "");
+                    for (k in g)
+                        e.set(
+                            k.replace(/[A-Z]/g, (t) => "_" + t[0].toLowerCase()),
+                            g[k],
+                        );
+                    e.set("callback", c + ".maps." + q);
+                    a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+                    d[q] = f;
+                    a.onerror = () => (h = n(Error(p + " could not load.")));
+                    a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                    m.head.append(a);
+                }));
+        d[l]
+            ? console.warn(p + " only loads once. Ignoring:", g)
+            : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
+    })({
+        key: "API_KEY",
+        v: "weekly",
+        // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+        // Add other bootstrap parameters as needed, using camel case.
+    });
+</script>
+</div>
+<div id="navBar">
+</div>
+</body>
+</html>

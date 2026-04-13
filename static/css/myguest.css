@@ -1,0 +1,74 @@
+html,body{
+    height: 100%;
+    margin: 0;
+}
+/*navigation bar*/
+#navigation{
+    display: flex;
+    border: solid white 1px;
+    background: linear-gradient(45deg, maroon 55%, gold 45%);
+}
+#navigation > div {
+    padding: 10px;
+    color: white;
+}
+#navigation > div > a {
+    color: white;
+    text-decoration: none;
+}
+/*table and image css*/
+.container{
+    display : flex;
+    height:100%;
+    width:100%;
+    gap: 5%;
+}
+.image-div{
+    flex: 1;
+    padding: 10px;
+    border:5px black;
+}
+.container > table{
+   border-collapse: collapse;
+   flex: 3;
+   height: 80%;
+   width: 70%;
+   margin-left: 3%;
+   margin-bottom: 2%;
+}
+td {
+    position: relative;
+}
+
+td img {
+    display: none;
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+
+th, td {
+  border:1px solid black;
+}
+tr:nth-child(even){
+    background-color: #ebecfb;
+}
+tr:nth-child(odd){
+background-color: white;
+}
+tr:hover {
+    background-color: grey;
+}
+tr:hover td img {
+display: block;
+}
+a:link{
+    border: 1px purple;
+}
+/*styling for map*/
+#map {
+    height: 100%;
+}

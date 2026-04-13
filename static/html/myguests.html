@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Guest list</title>
+    <link rel="stylesheet" href="../css/myguest.css">
+    <script src="../js/tableImage.js"></script>
+    <script type="module" src="../js/index.js"></script>
+</head>
+
+<body style="background: #4a5c60">
+<div id="navigation">
+    <div><a href="mywelcome.html">Welcome page</a></div>
+    <div><a href="myform.html">Form Input</a></div>
+    <div><a href="myguests.html">Guest info</a></div>
+    <div><a href="stocks.html">Stocks</a></div>
+</div>
+<h1 style="color:white"><strong>Guest Information</strong></h1>
+<div class = "container">
+<table id="guest-table">
+    <tr>
+        <th><strong>name</strong></th>
+        <th><strong>Relationship to Cobi</strong></th>
+        <th><strong>Stage of life</strong></th>
+        <th><strong>Location(Address)</strong></th>
+        <th><strong>Phone number</strong></th>
+        <th><strong>Website</strong></th>
+
+    </tr>
+    <tr onmouseover="showRowPic(1)">
+        <td>Esme</td>
+        <td>Sibling of Cobi</td>
+        <td>young adult</td>
+        <td>1458 Cleveland Ave N, St Paul, MN 55108
+            <img src="../img/keller.jpg" alt="keller"/>
+        </td>
+        <td>(612)123-4567</td>
+        <td><a href="https://housing.umn.edu/bailey">Bailey info</a></td>
+    </tr>
+    <tr onmouseover="showRowPic(2)">
+        <td>Michael</td>
+        <td>Father of Cobi</td>
+        <td>adult</td>
+        <td>3056 Bobcat trail NW, prior lake, 55372
+            <img src="../img/Lind.jpg" alt="Lind"/>
+        </td>
+        <td>(612)123-4567</td>
+        <td><a href="https://housing.umn.edu/bailey">Bailey info</a></td>
+    </tr>
+    <tr onmouseover="showRowPic(3)">
+        <td>Dawn</td>
+        <td>Mother of Cobi</td>
+        <td>adult</td>
+        <td>3056 Bobcat trail NW, prior lake, 55372
+            <img src="../img/rec.jpg" alt="rec"/>
+        </td>
+        <td>(612)987-6543</td>
+        <td><a href="https://housing.umn.edu/centennial">Centennial info</a></td>
+    </tr>
+    <tr onmouseover="showRowPic(4)">
+        <td>Andre</td>
+        <td>Sibling of Cobi</td>
+        <td>young adult</td>
+        <td>615 Fulton Street Southeast, Minneapolis, MN, 55455
+            <img src="../img/walter.jpg" alt="walter"/>
+        </td>
+        <td>(612)321-9876</td>
+        <td><a href="https://housing.umn.edu/pioneer">Pioneer info</a></td>
+    </tr>
+    <tr onmouseover="showRowPic(5)">
+        <td>maureen</td>
+        <td>Grandmother of Cobi</td>
+        <td>Adult</td>
+        <td>827 Mayowood Rd SW, Rochester, MN 55902
+            <img src="../img/Tate.png" alt="Tate"/>
+        </td>
+        <td>(952)342-3213</td>
+        <td><a href="https://www.thewaters.com/locations/the-waters-mayowood/">Waters on Mayowood info</a></td>
+    </tr>
+</table>
+    <div class="image-div">
+        <img height="500" width="500" id="big" src="../img/gophers-mascot.png" alt="goldy"/>
+    </div>
+</div>
+<script>
+
+</script>
+<div id="map"></div>
+
+<!-- load map -->
+<script>
+    ((g) => {
+        var h,
+            a,
+            k,
+            p = "The Google Maps JavaScript API",
+            c = "google",
+            l = "importLibrary",
+            q = "__ib__",
+            m = document,
+            b = window;
+        b = b[c] || (b[c] = {});
+        var d = b.maps || (b.maps = {}),
+            r = new Set(),
+            e = new URLSearchParams(),
+            u = () =>
+                h ||
+                (h = new Promise(async (f, n) => {
+                    await (a = m.createElement("script"));
+                    e.set("libraries", [...r] + "");
+                    for (k in g)
+                        e.set(
+                            k.replace(/[A-Z]/g, (t) => "_" + t[0].toLowerCase()),
+                            g[k],
+                        );
+                    e.set("callback", c + ".maps." + q);
+                    a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+                    d[q] = f;
+                    a.onerror = () => (h = n(Error(p + " could not load.")));
+                    a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                    m.head.append(a);
+                }));
+        d[l]
+            ? console.warn(p + " only loads once. Ignoring:", g)
+            : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
+    })({
+        key: "API_KEY",
+        v: "weekly",
+        // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+        // Add other bootstrap parameters as needed, using camel case.
+    });
+</script>
+
+
+</body>
+</html>

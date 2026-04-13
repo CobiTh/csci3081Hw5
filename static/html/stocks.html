@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stocks</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../css/stocks.css">
+</head>
+<style>
+
+</style>
+<body>
+<div id="navigation">
+    <div><a href="mywelcome.html">Welcome page</a></div>
+    <div><a href="myform.html">Form Input</a></div>
+    <div><a href="myguests.html">Guest info</a></div>
+    <div><a href="stocks.html">Stocks</a></div>
+</div>
+<form>
+    <input type="text" id="graph" name="ticker">
+<!--    I for sure spent too long on this dang button-->
+    <button type="button" id="start" disabled>wow stocks</button>
+</form>
+    <canvas id="stockChart" width="400" height="200"></canvas>
+    <script>
+        document.getElementById("graph").addEventListener("input", function() {
+            document.getElementById("start").disabled = this.value.trim() === "";
+        });//source: w3 schools
+        const element = document.getElementById("start");
+        element.addEventListener("click", function() {
+            makeGraph(document.getElementById("graph").value);
+        });
+        function makeGraph(ticker) {
+            let api_key = "API_KEY";
+            fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${ticker}&apikey=${api_key}`)
+                .then(res => res.json())
+                .then(data => { //source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+                    const timeSeries = data["Time Series (Daily)"];
+                    const dates = Object.keys(timeSeries).reverse();
+                    console.log(dates);
+                    //source https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+                    prices = dates.map(d => parseFloat(timeSeries[d]["4. close"]));
+
+                    document.getElementById('stockChart').style.display = 'block';
+                    var ctx = document.getElementById('stockChart').getContext('2d');
+                    var lineChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: dates,
+                            datasets: [{
+                                label: ticker,
+                                data: prices,
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                borderWidth: 2,
+                                fill: false
+                            }]
+                        },
+                        options: { scales: { y: { beginAtZero: false } } }
+                    });
+                });
+        }//source: https://www.freecodecamp.org/news/how-to-use-chart-js-for-interactive-data-visualization/
+    </script>
+</body>
+</html>
